@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FELPI - Configurações</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            background-color: #09090A;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+        .card {
+            background-color: #1E1E1E;
+            border-radius: 12px;
+        }
+        .active-dot {
+            background-color: #4ADE80;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #333;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #4ADE80;
+        }
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+    </style>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#4ADE80',secondary:'#1F1F22', lightGray1: "#F5F5F5", darkGray: "#09090A"},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+</head>
+<body class="min-h-screen pb-16">
+    <!-- Cabeçalho -->
+    <header class="fixed w-full top-0 bg-darkGray z-10 px-4 py-4 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-lightGray1/20 rounded-full flex items-center justify-center">
+                <i class="ri-steering-2-line ri-lg text-white"></i>
+            </div>
+            <h1 class="text-xl font-['Montserrat'] font-bold text-white">FELPI</h1>
+        </div>
+        <button class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-settings-3-line ri-lg text-white"></i>
+        </button>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="pt-20 px-4 pb-20">
+        <!-- Perfil do usuário -->
+        <section class="flex flex-col items-center mb-6">
+            <div class="relative mb-3">
+                <div class="w-24 h-24 rounded-full bg-gray-700 overflow-hidden flex items-center justify-center">
+                    <img src="./profile.jpg" alt="Foto do Perfil" class="w-full h-full object-cover">
+                </div>
+                <button class="absolute bottom-0 right-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center cursor-pointer !rounded-button">
+                    <i class="ri-camera-line text-black"></i>
+                </button>
+            </div>
+            <h2 class="text-xl font-semibold">Julha Ogawa</h2>
+            <p class="text-gray-400 text-sm">Motorista Profissional</p>
+            <div class="flex items-center mt-1">
+                <div class="flex items-center">
+                    <span class="active-dot mr-1"></span>
+                    <span class="text-sm">Ativo</span>
+                </div>
+                <div class="w-px h-4 bg-gray-700 mx-3"></div>
+                <div class="flex items-center">
+                    <i class="ri-time-line ri-sm mr-1 text-gray-400"></i>
+                    <span class="text-sm text-gray-400">1.245 horas de condução</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dados Pessoais -->
+        <section class="mb-6">
+            <h3 class="text-lg font-medium mb-3">Dados Pessoais</h3>
+            <div class="card p-4 space-y-4">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <p class="text-sm text-gray-400">Nome completo</p>
+                        <p>Rafael Oliveira Santos</p>
+                    </div>
+                    <button class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-edit-line text-gray-400"></i>
+                    </button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <p class="text-sm text-gray-400">E-mail</p>
+                        <p>rafael.oliveira@gmail.com</p>
+                    </div>
+                    <button class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-edit-line text-gray-400"></i>
+                    </button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <p class="text-sm text-gray-400">Telefone</p>
+                        <p>(11) 98765-4321</p>
+                    </div>
+                    <button class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-edit-line text-gray-400"></i>
+                    </button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <p class="text-sm text-gray-400">CNH</p>
+                        <p>12345678910 - Categoria D</p>
+                    </div>
+                    <button class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-edit-line text-gray-400"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preferências de Monitoramento -->
+        <section class="mb-6">
+            <h3 class="text-lg font-medium mb-3">Preferências de Monitoramento</h3>
+            <div class="card p-4 space-y-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-eye-line text-white"></i>
+                        </div>
+                        <div>
+                            <p>Alertas de fadiga</p>
+                            <p class="text-sm text-gray-400">Receba alertas quando sinais de fadiga forem detectados</p>
+                        </div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-notification-3-line text-white"></i>
+                        </div>
+                        <div>
+                            <p>Notificações de paradas</p>
+                            <p class="text-sm text-gray-400">Sugestões de paradas próximas para descanso</p>
+                        </div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-music-2-line text-white"></i>
+                        </div>
+                        <div>
+                            <p>Música calmante automática</p>
+                            <p class="text-sm text-gray-400">Ativar música relaxante quando detectar estresse</p>
+                        </div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </section>
+        <!-- Configurações de Segurança -->
+        <section class="mb-6">
+            <h3 class="text-lg font-medium mb-3">Configurações de Segurança</h3>
+            <div class="card p-4 space-y-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-contacts-line text-white"></i>
+                        </div>
+                        <div>
+                            <p>Contatos de emergência</p>
+                            <p class="text-sm text-gray-400">Gerenciar contatos para situações de emergência</p>
+                        </div>
+                    </div>
+                    <button class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-arrow-right-s-line text-gray-400"></i>
+                    </button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-map-pin-line text-white"></i>
+                        </div>
+                        <div>
+                            <p>Locais favoritos para parada</p>
+                            <p class="text-sm text-gray-400">Gerenciar locais preferidos para descanso</p>
+                        </div>
+                    </div>
+                    <button class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-arrow-right-s-line text-gray-400"></i>
+                    </button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-shield-line text-white"></i>
+                        </div>
+                        <div>
+                            <p>Configurações de privacidade</p>
+                            <p class="text-sm text-gray-400">Gerenciar permissões e dados compartilhados</p>
+                        </div>
+                    </div>
+                    <button class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-arrow-right-s-line text-gray-400"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Configurações do Aplicativo -->
+        <section class="mb-6">
+            <h3 class="text-lg font-medium mb-3">Configurações do Aplicativo</h3>
+            <div class="card p-4 space-y-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-moon-line text-white"></i>
+                        </div>
+                        <div>
+                            <p>Modo escuro</p>
+                            <p class="text-sm text-gray-400">Ativar interface com cores escuras</p>
+                        </div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-translate-2-line text-white"></i>
+                        </div>
+                        <div>
+                            <p>Idioma</p>
+                            <p class="text-sm text-gray-400">Português (Brasil)</p>
+                        </div>
+                    </div>
+                    <button class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-arrow-right-s-line text-gray-400"></i>
+                    </button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-information-line text-white"></i>
+                        </div>
+                        <div>
+                            <p>Sobre o FELPI</p>
+                            <p class="text-sm text-gray-400">Versão 2.3.1</p>
+                        </div>
+                    </div>
+                    <button class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-arrow-right-s-line text-gray-400"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Botão de Sair -->
+        <button class="w-full py-3 bg-red-600 rounded-lg text-white font-medium mb-6 cursor-pointer !rounded-button">
+            Sair da conta
+        </button>
+    </main>
+
+    <!-- Barra de navegação inferior -->
+    <nav class="fixed bottom-0 w-full bg-black border-t border-gray-800 flex justify-between items-center px-4 py-2">
+        <a href="#" class="flex flex-col items-center w-1/4 cursor-pointer">
+            <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-home-5-line ri-lg text-gray-400"></i>
+            </div>
+            <span class="text-xs text-gray-400 mt-1">Início</span>
+        </a>
+        <a href="#" class="flex flex-col items-center w-1/4 cursor-pointer">
+            <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-map-pin-line ri-lg text-gray-400"></i>
+            </div>
+            <span class="text-xs text-gray-400 mt-1">Mapa</span>
+        </a>
+        <a href="#" class="flex flex-col items-center w-1/4 cursor-pointer">
+            <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-bar-chart-line ri-lg text-gray-400"></i>
+            </div>
+            <span class="text-xs text-gray-400 mt-1">Análise</span>
+        </a>
+        <a href="#" class="flex flex-col items-center w-1/4 cursor-pointer">
+            <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-user-line ri-lg text-primary"></i>
+            </div>
+            <span class="text-xs text-primary mt-1">Perfil</span>
+        </a>
+    </nav>
+
+    <script id="toggleSwitch">
+        document.addEventListener('DOMContentLoaded', function() {
+            const switches = document.querySelectorAll('.switch input');
+            switches.forEach(switchEl => {
+                switchEl.addEventListener('change', function() {
+                    // Aqui você pode adicionar lógica específica para cada switch
+                    console.log('Switch alterado:', this.checked);
+                });
+            });
+        });
+    </script>
+    <script id="navigationHandler">
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Simulação de navegação
+                    navLinks.forEach(l => {
+                        l.querySelector('i').classList.add('text-gray-400');
+                        l.querySelector('i').classList.remove('text-primary');
+                        l.querySelector('span').classList.add('text-gray-400');
+                        l.querySelector('span').classList.remove('text-primary');
+                    });
+                    
+                    this.querySelector('i').classList.remove('text-gray-400');
+                    this.querySelector('i').classList.add('text-primary');
+                    this.querySelector('span').classList.remove('text-gray-400');
+                    this.querySelector('span').classList.add('text-primary');
+                });
+            });
+        });
+    </script>
+    <script id="editProfileHandler">
+        document.addEventListener('DOMContentLoaded', function() {
+            const editButtons = document.querySelectorAll('.ri-edit-line');
+            editButtons.forEach(button => {
+                button.parentElement.addEventListener('click', function() {
+                    const fieldType = this.parentElement.querySelector('.text-gray-400').textContent;
+                    const currentValue = this.parentElement.querySelector('p:not(.text-gray-400)').textContent;
+                    console.log(`Editar ${fieldType}: ${currentValue}`);
+                    // Aqui você implementaria a lógica para editar o campo
+                });
+            });
+        });
+    </script>
+</body>
+</html>
